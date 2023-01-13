@@ -1,6 +1,9 @@
 package net.iamaprogrammer.toggleableitemframes;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
+import net.fabricmc.fabric.api.event.player.UseEntityCallback;
+import net.iamaprogrammer.toggleableitemframes.event.UseEntityHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,6 +14,6 @@ public class ToggleableItemFrames implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-
+		UseEntityCallback.EVENT.register(new UseEntityHandler());
 	}
 }
