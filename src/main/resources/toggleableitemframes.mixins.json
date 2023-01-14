@@ -7,7 +7,6 @@
     "ModifyItemFrameNbt"
   ],
   "client": [
-    "ExampleMixin"
   ],
   "injectors": {
     "defaultRequire": 1

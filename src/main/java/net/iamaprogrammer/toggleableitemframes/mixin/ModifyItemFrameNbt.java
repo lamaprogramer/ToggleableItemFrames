@@ -2,16 +2,15 @@ package net.iamaprogrammer.toggleableitemframes.mixin;
 
 
 import net.iamaprogrammer.toggleableitemframes.util.IModifyItemFrameNbt;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.decoration.ItemFrameEntity;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+
+// Mixin for Custom NBT
 @Mixin(ItemFrameEntity.class)
 public abstract class ModifyItemFrameNbt implements IModifyItemFrameNbt {
     private boolean isCurrentlyInvisible = false;
