@@ -9,5 +9,15 @@ You may also use mod this in your modpack.
 
 ## Issues
 If you happen to find any bugs or compatability issues, please
-report them in Issues att the top left.
+report them in Issues att the top left. When reporting, please follow this format:
 
+#
+#### Minecraft Version
+#### Fabric Loader Version
+#### Fabric API Version
+#### Mod Version
+
+
+#### Detailed description of what the issue is and how to replicate it.
+#### Also provide your crash log if the bug cause your game to crash.
+#
