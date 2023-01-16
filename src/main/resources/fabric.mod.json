@@ -9,8 +9,8 @@
     "Iamaprogrammer"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/toggle-item-frames",
+    "sources": "https://github.com/lamaprogramer/ToggleableItemFrames"
   },
 
   "license": "MIT License",
