@@ -22,7 +22,6 @@
       "net.iamaprogrammer.toggleableitemframes.ToggleableItemFrames"
     ],
     "client": [
-      "net.iamaprogrammer.toggleableitemframes.ToggleableItemFramesClient"
     ]
   },
   "mixins": [

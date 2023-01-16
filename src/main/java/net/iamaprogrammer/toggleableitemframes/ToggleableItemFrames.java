@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.iamaprogrammer.toggleableitemframes.event.ServerTickHandler;
 import net.iamaprogrammer.toggleableitemframes.event.UseEntityHandler;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
