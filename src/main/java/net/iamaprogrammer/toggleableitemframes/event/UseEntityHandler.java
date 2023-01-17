@@ -17,10 +17,13 @@ public class UseEntityHandler implements UseEntityCallback {
     @Override
     public ActionResult interact(PlayerEntity player, World world, Hand hand, Entity entity, @Nullable EntityHitResult hitResult) {
 
-        if (entity instanceof ItemFrameEntity && hitResult != null && !world.isClient() && player.getMainHandStack().isEmpty() && player.isSneaking() && hand.equals(Hand.MAIN_HAND)) {
+        if (entity instanceof ItemFrameEntity && hitResult != null && !world.isClient() && !player.isSpectator() && player.getMainHandStack().isEmpty() && player.isSneaking() && hand.equals(Hand.MAIN_HAND)) {
             // Make item frame invisible and modify nbt
             IModifyItemFrameNbt frame = (IModifyItemFrameNbt)entity;
             frame.setCurrentlyInvisible(!frame.getCurrentlyInvisible());
+            if (((ItemFrameEntity) entity).getHeldItemStack() == ItemStack.EMPTY) {
+                entity.playSound(((ItemFrameEntity) entity).getRotateItemSound(), 1.0f, 1.0f);
+            }
 
             ((ItemFrameEntity) entity).setRotation(((ItemFrameEntity) entity).getRotation() - 1);
             entity.setInvisible(!entity.isInvisible());
