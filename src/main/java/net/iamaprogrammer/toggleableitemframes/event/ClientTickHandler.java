@@ -28,7 +28,7 @@ public class ClientTickHandler implements ClientTickEvents.StartTick {
             entities = (ArrayList<ItemFrameEntity>) world.getEntitiesByClass(ItemFrameEntity.class, new Box(player.getX() - 10, player.getY() - 10, player.getZ() - 10, player.getX() + 10, player.getY() + 10, player.getZ() + 10), EntityPredicates.VALID_ENTITY);
             for (ItemFrameEntity frame : entities) {
                 invisibleFrame = (IModifyItemFrameNbt) frame;
-                if (invisibleFrame.getCurrentlyInvisible()) {
+                if (invisibleFrame.getCurrentlyInvisible() || !MinecraftClient.getInstance().isInSingleplayer()) {
                     if ((player.isHolding(Items.ITEM_FRAME) || player.isHolding(Items.GLOW_ITEM_FRAME)) && Math.abs(player.getX() - frame.getX()) <= 9
                             && Math.abs(player.getY() - frame.getY()) <= 9
                             && Math.abs(player.getZ() - frame.getZ()) <= 9) {

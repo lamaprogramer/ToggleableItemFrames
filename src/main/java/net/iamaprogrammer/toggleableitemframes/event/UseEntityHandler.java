@@ -2,6 +2,7 @@ package net.iamaprogrammer.toggleableitemframes.event;
 
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.iamaprogrammer.toggleableitemframes.util.IModifyItemFrameNbt;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.decoration.ItemFrameEntity;
@@ -29,25 +30,28 @@ public class UseEntityHandler implements UseEntityCallback {
                     entity.playSound(((ItemFrameEntity) entity).getRotateItemSound(), 1.0f, 1.0f);
                 }
                 entity.setInvisible(!entity.isInvisible());
-                player.sendMessage(Text.literal("server"));
+                //player.sendMessage(Text.literal("server"));
 
             } else {
                 IModifyItemFrameNbt frame = (IModifyItemFrameNbt) entity;
                 frame.setCurrentlyInvisible(!frame.getCurrentlyInvisible());
 
                 ((ItemFrameEntity) entity).setRotation(((ItemFrameEntity) entity).getRotation() - 1);
-                player.sendMessage(Text.literal("server"));
+                //player.sendMessage(Text.literal("server"));
             }
         } else if (entity instanceof ItemFrameEntity && hitResult != null && !player.isSpectator() && world.isClient() && player.getMainHandStack().isEmpty() && player.isSneaking() && hand.equals(Hand.MAIN_HAND)) {
-            IModifyItemFrameNbt frame = (IModifyItemFrameNbt) entity;
-            frame.setCurrentlyInvisible(!frame.getCurrentlyInvisible());
+            if (MinecraftClient.getInstance().isInSingleplayer()) {
+                IModifyItemFrameNbt frame = (IModifyItemFrameNbt) entity;
+                frame.setCurrentlyInvisible(!frame.getCurrentlyInvisible());
 
-            if (((ItemFrameEntity) entity).getHeldItemStack() == ItemStack.EMPTY) {
-                player.playSound(((ItemFrameEntity) entity).getRotateItemSound(), 1.0f, 1.0f);
+
+                if (((ItemFrameEntity) entity).getHeldItemStack() == ItemStack.EMPTY) {
+                    player.playSound(((ItemFrameEntity) entity).getRotateItemSound(), 1.0f, 1.0f);
+                }
+
+                entity.setInvisible(!entity.isInvisible());
+                //player.sendMessage(Text.literal("client"));
             }
-
-            entity.setInvisible(!entity.isInvisible());
-            player.sendMessage(Text.literal("client"));
         }
         return ActionResult.PASS;
     }
