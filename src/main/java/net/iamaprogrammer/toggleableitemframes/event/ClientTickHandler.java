@@ -8,7 +8,6 @@ import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.decoration.ItemFrameEntity;
 import net.minecraft.item.Items;
 import net.minecraft.predicate.entity.EntityPredicates;
-import net.minecraft.text.Text;
 import net.minecraft.util.math.Box;
 
 import java.util.ArrayList;
