@@ -4,12 +4,9 @@ import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.iamaprogrammer.toggleableitemframes.util.IModifyItemFrameNbt;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.decoration.ItemFrameEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.EntityHitResult;
@@ -17,7 +14,6 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class UseEntityHandler implements UseEntityCallback {
-    boolean serverExists;
     @Override
     public ActionResult interact(PlayerEntity player, World world, Hand hand, Entity entity, @Nullable EntityHitResult hitResult) {
         if (entity instanceof ItemFrameEntity && hitResult != null && !player.isSpectator() && !world.isClient() && world.getServer() != null && player.getMainHandStack().isEmpty() && player.isSneaking() && hand.equals(Hand.MAIN_HAND)) {

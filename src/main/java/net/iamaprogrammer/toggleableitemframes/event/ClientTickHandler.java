@@ -8,6 +8,7 @@ import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.decoration.ItemFrameEntity;
 import net.minecraft.item.Items;
 import net.minecraft.predicate.entity.EntityPredicates;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.Box;
 
 import java.util.ArrayList;
@@ -21,8 +22,8 @@ public class ClientTickHandler implements ClientTickEvents.StartTick {
     ArrayList<ItemFrameEntity> invisibleFrames = new ArrayList<>();
     @Override
     public void onStartTick(MinecraftClient client) {
-        world = world == null ? client.world : world;
-        player = player == null ? client.player : player;
+        world = client.world;
+        player = client.player;
 
         if(player != null && world != null) {
             entities = (ArrayList<ItemFrameEntity>) world.getEntitiesByClass(ItemFrameEntity.class, new Box(player.getX() - 10, player.getY() - 10, player.getZ() - 10, player.getX() + 10, player.getY() + 10, player.getZ() + 10), EntityPredicates.VALID_ENTITY);
