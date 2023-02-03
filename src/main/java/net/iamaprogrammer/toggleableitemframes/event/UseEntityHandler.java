@@ -33,20 +33,8 @@ public class UseEntityHandler implements UseEntityCallback {
                 frame.setCurrentlyInvisible(!frame.getCurrentlyInvisible());
 
                 ((ItemFrameEntity) entity).setRotation(((ItemFrameEntity) entity).getRotation() - 1);
-                //player.sendMessage(Text.literal("server"));
-            }
-        } else if (entity instanceof ItemFrameEntity && hitResult != null && !player.isSpectator() && world.isClient() && player.getMainHandStack().isEmpty() && player.isSneaking() && hand.equals(Hand.MAIN_HAND)) {
-            if (MinecraftClient.getInstance().isInSingleplayer()) {
-                IModifyItemFrameNbt frame = (IModifyItemFrameNbt) entity;
-                frame.setCurrentlyInvisible(!frame.getCurrentlyInvisible());
-
-
-                if (((ItemFrameEntity) entity).getHeldItemStack() == ItemStack.EMPTY) {
-                    player.playSound(((ItemFrameEntity) entity).getRotateItemSound(), 1.0f, 1.0f);
-                }
-
                 entity.setInvisible(!entity.isInvisible());
-                //player.sendMessage(Text.literal("client"));
+                //player.sendMessage(Text.literal("server"));
             }
         }
         return ActionResult.PASS;
