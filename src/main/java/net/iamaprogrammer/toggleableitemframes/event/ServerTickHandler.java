@@ -21,26 +21,24 @@ public class ServerTickHandler implements ServerTickEvents.StartTick {
 
     @Override
     public void onStartTick(MinecraftServer server) {
-        if (!server.isSingleplayer()) {
-            for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
-                world = player.getWorld();
-                entities = (ArrayList<ItemFrameEntity>) world.getEntitiesByClass(ItemFrameEntity.class, new Box(player.getX() - 10, player.getY() - 10, player.getZ() - 10, player.getX() + 10, player.getY() + 10, player.getZ() + 10), EntityPredicates.VALID_ENTITY);
-                for (ItemFrameEntity frame : entities) {
-                    invisibleFrame = (IModifyItemFrameNbt) frame;
-                    if (invisibleFrame.getCurrentlyInvisible()) {
-                        if ((player.isHolding(Items.ITEM_FRAME) || player.isHolding(Items.GLOW_ITEM_FRAME)) && Math.abs(player.getX() - frame.getX()) <= 9
-                                && Math.abs(player.getY() - frame.getY()) <= 9
-                                && Math.abs(player.getZ() - frame.getZ()) <= 9) {
-                            frame.setInvisible(false);
-                            invisibleFrames.add(frame);
-                        } else {
-                            frame.setInvisible(true);
-                        }
+        for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
+            world = player.getWorld();
+            entities = (ArrayList<ItemFrameEntity>) world.getEntitiesByClass(ItemFrameEntity.class, new Box(player.getX() - 10, player.getY() - 10, player.getZ() - 10, player.getX() + 10, player.getY() + 10, player.getZ() + 10), EntityPredicates.VALID_ENTITY);
+            for (ItemFrameEntity frame : entities) {
+                invisibleFrame = (IModifyItemFrameNbt) frame;
+                if (invisibleFrame.getCurrentlyInvisible()) {
+                    if ((player.isHolding(Items.ITEM_FRAME) || player.isHolding(Items.GLOW_ITEM_FRAME)) && Math.abs(player.getX() - frame.getX()) <= 9
+                            && Math.abs(player.getY() - frame.getY()) <= 9
+                            && Math.abs(player.getZ() - frame.getZ()) <= 9) {
+                        frame.setInvisible(false);
+                        invisibleFrames.add(frame);
+                    } else {
+                        frame.setInvisible(true);
                     }
                 }
-                entities.clear();
-                invisibleFrames.clear();
             }
+            entities.clear();
+            invisibleFrames.clear();
         }
     }
 }
