@@ -22,7 +22,7 @@ public class ServerTickHandler implements ServerTickEvents.StartTick {
     @Override
     public void onStartTick(MinecraftServer server) {
         for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
-            world = player.getWorld();
+            world = (ServerWorld) player.getWorld();
             entities = (ArrayList<ItemFrameEntity>) world.getEntitiesByClass(ItemFrameEntity.class, new Box(player.getX() - 10, player.getY() - 10, player.getZ() - 10, player.getX() + 10, player.getY() + 10, player.getZ() + 10), EntityPredicates.VALID_ENTITY);
             for (ItemFrameEntity frame : entities) {
                 invisibleFrame = (IModifyItemFrameNbt) frame;

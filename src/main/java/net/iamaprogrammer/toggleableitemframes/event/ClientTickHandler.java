@@ -3,15 +3,11 @@ package net.iamaprogrammer.toggleableitemframes.event;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.iamaprogrammer.toggleableitemframes.util.IModifyItemFrameNbt;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.world.WorldCreator;
 import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.client.option.KeyBinding;
-import net.minecraft.client.util.InputUtil;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.decoration.ItemFrameEntity;
 import net.minecraft.item.Items;
 import net.minecraft.predicate.entity.EntityPredicates;
-import net.minecraft.text.Text;
 import net.minecraft.util.math.Box;
 
 import java.util.ArrayList;

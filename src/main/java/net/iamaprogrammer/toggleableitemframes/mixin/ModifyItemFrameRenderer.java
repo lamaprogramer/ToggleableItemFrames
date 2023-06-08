@@ -23,7 +23,7 @@ public abstract class ModifyItemFrameRenderer<T extends ItemFrameEntity> extends
     @Inject(method = "render(Lnet/minecraft/entity/decoration/ItemFrameEntity;FFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/decoration/ItemFrameEntity;isInvisible()Z"))
     private void injected(T itemFrameEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, CallbackInfo ci) {
         if (!MinecraftClient.getInstance().isInSingleplayer() && MinecraftClient.getInstance().player != null) {
-            if (itemFrameEntity.world.isClient() && !(MinecraftClient.getInstance().player.isHolding(Items.ITEM_FRAME) || MinecraftClient.getInstance().player.isHolding(Items.GLOW_ITEM_FRAME))) {
+            if (itemFrameEntity.getEntityWorld().isClient() && !(MinecraftClient.getInstance().player.isHolding(Items.ITEM_FRAME) || MinecraftClient.getInstance().player.isHolding(Items.GLOW_ITEM_FRAME))) {
                 itemFrameEntity.setInvisible(true);
             }
         }
