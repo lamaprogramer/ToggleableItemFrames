@@ -7,7 +7,7 @@
     "ModifyItemFrameNbt"
   ],
   "client": [
-    "ModifyItemFrameRenderer"
+    "ItemFrameEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
