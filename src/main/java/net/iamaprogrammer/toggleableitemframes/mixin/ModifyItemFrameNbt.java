@@ -24,9 +24,8 @@ public abstract class ModifyItemFrameNbt extends AbstractDecorationEntity {
     protected ModifyItemFrameNbt(EntityType<? extends AbstractDecorationEntity> entityType, World world) {
         super(entityType, world);
     }
-
     @Inject(method = "interact", at = @At(value = "FIELD", target = "Lnet/minecraft/world/World;isClient:Z", opcode = Opcodes.GETFIELD, shift = At.Shift.AFTER), cancellable = true)
-    private void interact(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
+    private void toggleableitemframes_ToggleItemFrame(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
         if (!this.getWorld().isClient() && !player.isSpectator() && player.getMainHandStack().isEmpty() && player.isSneaking() && hand.equals(Hand.MAIN_HAND)) {
             this.setInvisible(!this.isInvisible());
             this.playSound(this.getRotateItemSound(), 1.0f, 1.0f);

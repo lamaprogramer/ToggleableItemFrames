@@ -20,7 +20,7 @@ public abstract class ItemFrameEntityRendererMixin<T extends ItemFrameEntity> ex
     }
 
     @ModifyVariable(method = "render(Lnet/minecraft/entity/decoration/ItemFrameEntity;FFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V", at = @At("STORE"), ordinal = 0)
-    private boolean shouldRender(boolean value) {
+    private boolean toggleableitemframes_CheckIfHoldingFrame(boolean value) {
         MinecraftClient client = MinecraftClient.getInstance();
         ClientPlayerEntity player = client.player;
 
