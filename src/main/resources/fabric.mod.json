@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "toggleableitemframes",
+  "version": "${version}",
+
+  "name": "Toggleable Item Frames",
+  "description": "Allows you to easily toggle item frames to be invisible.",
+  "authors": [
+    "Iamaprogrammer"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/toggle-item-frames",
+    "sources": "https://github.com/lamaprogramer/ToggleableItemFrames"
+  },
+
+  "license": "MIT License",
+  "icon": "assets/toggleableitemframes/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "modmenu": [
+      "net.iamaprogrammer.toggleableitemframes.compat.modmenu.ModMenuCompat"
+    ],
+    "main": [
+      "net.iamaprogrammer.toggleableitemframes.ToggleableItemFrames"
+    ],
+    "client": [
+      "net.iamaprogrammer.toggleableitemframes.ToggleableItemFramesClient"
+    ]
+  },
+  "mixins": [
+    "toggleableitemframes.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.14",
+    "fabric": "*",
+    "minecraft": [
+      "1.19",
+      "1.19.1",
+      "1.19.2",
+      "1.19.3",
+      "1.19.4"
+    ],
+    "java": ">=17"
+  }
+}
