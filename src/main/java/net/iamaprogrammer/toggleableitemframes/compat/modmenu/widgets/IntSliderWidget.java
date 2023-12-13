@@ -12,7 +12,7 @@ public class IntSliderWidget<C extends Config> extends SliderWidget {
     private final ConfigScreen.UpdateCallback<C, Integer> callback;
     private final C config;
     protected IntSliderWidget(int x, int y, int width, int height, int min, int max, double value, C config, ConfigScreen.UpdateCallback<C, Integer> callback) {
-        super(x, y, width, height, Text.of(String.valueOf(value)), translateValue(value, min, max));
+        super(x, y, width, height, Text.of(String.valueOf((int)value)), translateValue(value, min, max));
         this.callback = callback;
         this.config = config;
         this.min = min;
