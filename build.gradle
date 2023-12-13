@@ -37,8 +37,8 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modImplementation "maven.modrinth:moreculling:v0.19.0-1.20.x"
-	modImplementation "maven.modrinth:cloth-config:11.1.106+fabric"
+//	modImplementation "maven.modrinth:moreculling:v0.19.0-1.20.x"
+//	modImplementation "maven.modrinth:cloth-config:11.1.106+fabric"
 	modImplementation "maven.modrinth:modmenu:7.2.2"
 
 	// Uncomment the following line to enable the deprecated Fabric API modules. 
