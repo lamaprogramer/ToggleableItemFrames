@@ -16,12 +16,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-
-// Mixin for Custom NBT
 @Mixin(ItemFrameEntity.class)
-public abstract class ModifyItemFrameNbt extends AbstractDecorationEntity {
+public abstract class ItemFrameEntityServerMixin extends AbstractDecorationEntity {
     @Shadow public abstract SoundEvent getRotateItemSound();
-    protected ModifyItemFrameNbt(EntityType<? extends AbstractDecorationEntity> entityType, World world) {
+    protected ItemFrameEntityServerMixin(EntityType<? extends AbstractDecorationEntity> entityType, World world) {
         super(entityType, world);
     }
     @Inject(method = "interact", at = @At(value = "FIELD", target = "Lnet/minecraft/world/World;isClient:Z", opcode = Opcodes.GETFIELD, shift = At.Shift.AFTER), cancellable = true)

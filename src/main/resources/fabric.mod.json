@@ -18,6 +18,9 @@
 
   "environment": "*",
   "entrypoints": {
+    "modmenu": [
+      "net.iamaprogrammer.toggleableitemframes.compat.modmenu.ModMenuCompat"
+    ],
     "main": [
       "net.iamaprogrammer.toggleableitemframes.ToggleableItemFrames"
     ],
@@ -32,7 +35,13 @@
   "depends": {
     "fabricloader": ">=0.14.14",
     "fabric": "*",
-    "minecraft": ">=1.19",
+    "minecraft": [
+      "1.19",
+      "1.19.1",
+      "1.19.2",
+      "1.19.3",
+      "1.19.4"
+    ],
     "java": ">=17"
   }
 }
