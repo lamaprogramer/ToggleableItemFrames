@@ -55,7 +55,7 @@ public class ConfigScreen<C extends Config> extends Screen {
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        this.renderBackgroundTexture(context);
+        this.renderBackground(context, 0, 0, 0);
         super.render(context, mouseX, mouseY, delta);
         for (int i = 0; i < this.widgets.size(); i++) {
 
