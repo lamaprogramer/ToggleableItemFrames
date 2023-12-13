@@ -80,9 +80,9 @@ public class ConfigScreen<C extends Config> extends Screen {
     }
 
     private ButtonWidget cancelButton() {
-        return ButtonWidget.builder(Text.translatable("toggleableitemframes.option.cancel"), button -> {
-            this.closeScreen();
-        }).size(BUTTON_WIDTH, BUTTON_HEIGHT).position(((this.width/2) - BUTTON_WIDTH) / 2, this.height-BUTTON_HEIGHT).build();
+        return ButtonWidget.builder(Text.translatable("toggleableitemframes.option.cancel"),
+                button -> this.closeScreen()
+        ).size(BUTTON_WIDTH, BUTTON_HEIGHT).position(((this.width/2) - BUTTON_WIDTH) / 2, this.height-BUTTON_HEIGHT).build();
     }
     private void closeScreen() {
         this.close();
@@ -113,9 +113,8 @@ public class ConfigScreen<C extends Config> extends Screen {
         public <T> Builder<C> addCyclingButtonWidget(Text desc, List<T> values, UpdateCallback<C, T> callback, LoadCallback<C, T> loadCallback) {
             CyclingButtonWidget<T> widget = CyclingButtonWidget.<T>builder((val) -> Text.of(String.valueOf(val)))
                     .values(values)
-                    .build(0, 0, BUTTON_WIDTH, BUTTON_HEIGHT, Text.translatable("toggleableitemframes.option.value"), (button, value) -> {
-                        callback.modifyConfigCallback(this.config, value);
-                    });
+                    .build(0, 0, BUTTON_WIDTH, BUTTON_HEIGHT, Text.translatable("toggleableitemframes.option.value"),
+                            (button, value) -> callback.modifyConfigCallback(this.config, value));
             widget.setValue(loadCallback.onLoad(this.config));
             this.widgets.add(new ConfigItem(desc, widget));
             return this;
