@@ -41,3 +41,4 @@ replay_*.log
 /build/
 /.idea/
 /.gradle/
+/.gradle/7.6/
