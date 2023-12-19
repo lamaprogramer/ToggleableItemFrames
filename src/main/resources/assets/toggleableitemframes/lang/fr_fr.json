@@ -1,0 +1,7 @@
+{
+  "toggleableitemframes.option.desc.showinvisibleframeswhenheld": "Afficher les cadres invisibles lorsqu'ils sont tenus : ",
+  "toggleableitemframes.option.desc.renderitemmodeldistance": "Distance de l'affichage du modèle de l'objet : ",
+  "toggleableitemframes.option.value": "Valeur",
+  "toggleableitemframes.option.save": "Sauvegarder",
+  "toggleableitemframes.option.cancel": "Annuler"
+}
