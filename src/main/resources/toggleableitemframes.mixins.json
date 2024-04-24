@@ -2,13 +2,13 @@
   "required": true,
   "minVersion": "0.8",
   "package": "net.iamaprogrammer.toggleableitemframes.mixin",
-  "compatibilityLevel": "JAVA_17",
+  "compatibilityLevel": "JAVA_21",
   "mixins": [
     "ItemFrameEntityServerMixin"
   ],
   "client": [
     "EntityMixin",
-    "ItemFrameEntityClientMixin"
+    "ItemFrameEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

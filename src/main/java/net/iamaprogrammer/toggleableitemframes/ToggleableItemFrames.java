@@ -2,8 +2,13 @@ package net.iamaprogrammer.toggleableitemframes;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.iamaprogrammer.toggleableitemframes.networking.VersionIdentifier;
+import net.iamaprogrammer.toggleableitemframes.networking.packets.ModVersionPacket;
+import net.minecraft.network.RegistryByteBuf;
+import net.minecraft.network.codec.PacketCodec;
+import net.minecraft.network.codec.PacketCodecs;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,7 +18,9 @@ public class ToggleableItemFrames implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ServerPlayNetworking.registerGlobalReceiver(VersionIdentifier.version_id, (server, player, handler, buf, responseSender) ->
-				responseSender.sendPacket(VersionIdentifier.version_id, PacketByteBufs.create().writeString(VersionIdentifier.MOD_VERSION)));
+		PayloadTypeRegistry.playC2S().register(ModVersionPacket.PACKET_ID, ModVersionPacket.PACKET_CODEC);
+
+		ServerPlayNetworking.registerGlobalReceiver(ModVersionPacket.PACKET_ID, (payload, context) ->
+				context.responseSender().sendPacket(new ModVersionPacket(VersionIdentifier.MOD_VERSION)));
 	}
 }
