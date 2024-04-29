@@ -14,7 +14,7 @@ import java.util.UUID;
 public record ModVersionPacket(String version) implements CustomPayload {
     public static final CustomPayload.Id<ModVersionPacket> PACKET_ID = new CustomPayload.Id<>(new Identifier(
             ToggleableItemFrames.MOD_ID, ToggleableItemFrames.MOD_ID + "_version_identifier"));
-    public static final PacketCodec<ByteBuf, ModVersionPacket> PACKET_CODEC = PacketCodecs.STRING.xmap(ModVersionPacket::new, ModVersionPacket::version);
+    public static final PacketCodec<ByteBuf, ModVersionPacket> PACKET_CODEC = PacketCodecs.STRING.xmap(ModVersionPacket::new, ModVersionPacket::version).cast();
 
     @Override
     public Id<? extends CustomPayload> getId() {

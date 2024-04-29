@@ -19,8 +19,10 @@ public class ToggleableItemFrames implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		PayloadTypeRegistry.playC2S().register(ModVersionPacket.PACKET_ID, ModVersionPacket.PACKET_CODEC);
+		PayloadTypeRegistry.playS2C().register(ModVersionPacket.PACKET_ID, ModVersionPacket.PACKET_CODEC);
 
-		ServerPlayNetworking.registerGlobalReceiver(ModVersionPacket.PACKET_ID, (payload, context) ->
-				context.responseSender().sendPacket(new ModVersionPacket(VersionIdentifier.MOD_VERSION)));
+		ServerPlayNetworking.registerGlobalReceiver(ModVersionPacket.PACKET_ID, (payload, context) -> {
+			context.responseSender().sendPacket(new ModVersionPacket(VersionIdentifier.MOD_VERSION));
+		});
 	}
 }
