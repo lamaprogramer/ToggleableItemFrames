@@ -21,12 +21,6 @@ public class ModMenuCompat implements ModMenuApi {
                         CoreConfig::showInvisibleFramesWhenHeld,
                         CoreConfig::shouldShowInvisibleFramesWhenHeld
                 )
-                .addSliderWidget(
-                        Text.translatable("toggleableitemframes.option.desc.renderitemmodeldistance"),
-                        0, 150,
-                        CoreConfig::setRenderItemModelDistance,
-                        CoreConfig::getRenderItemModelDistance
-                )
                 .build();
     }
 }
