@@ -17,7 +17,6 @@ public class ToggleableItemFramesClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         CoreConfig defaultConfig = new CoreConfig();
-        defaultConfig.setRenderItemModelDistance(75);
         defaultConfig.showInvisibleFramesWhenHeld(true);
 
         CONFIG = new ConfigRegistry<>(defaultConfig, CoreConfig.class).register();
@@ -25,12 +24,8 @@ public class ToggleableItemFramesClient implements ClientModInitializer {
         ClientPlayConnectionEvents.JOIN.register(new ClientPlayEventHandler());
         ClientPlayConnectionEvents.DISCONNECT.register(new ClientDisconnectEventHandler());
 
-        //PayloadTypeRegistry.playC2S().register(ModVersionPacket.PACKET_ID, ModVersionPacket.PACKET_CODEC);
-        //PayloadTypeRegistry.playS2C().register(ModVersionPacket.PACKET_ID, ModVersionPacket.PACKET_CODEC);
-
         ClientPlayNetworking.registerGlobalReceiver(ModVersionPacket.PACKET_ID, (payload, context) -> {
             ALWAYS_INVISIBLE = !payload.version().equals(VersionIdentifier.MOD_VERSION);
-            System.out.println(ALWAYS_INVISIBLE + "hi");
         });
     }
 }
