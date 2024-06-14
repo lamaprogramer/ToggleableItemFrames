@@ -5,15 +5,13 @@ import net.iamaprogrammer.toggleableitemframes.config.core.Config;
 
 public class CoreConfig implements Config {
     private boolean showInvisibleFramesWhenHeld;
-    private int renderItemModelDistance;
 
     public CoreConfig() {}
-    public CoreConfig(boolean showInvisibleFramesWhenHeld, int renderItemModelDistance) {
+    public CoreConfig(boolean showInvisibleFramesWhenHeld) {
         this.showInvisibleFramesWhenHeld = showInvisibleFramesWhenHeld;
-        this.renderItemModelDistance = renderItemModelDistance;
     }
     public CoreConfig(CoreConfig copy) {
-        this(copy.showInvisibleFramesWhenHeld, copy.renderItemModelDistance);
+        this(copy.showInvisibleFramesWhenHeld);
     }
 
     public boolean shouldShowInvisibleFramesWhenHeld() {
@@ -24,13 +22,6 @@ public class CoreConfig implements Config {
         this.showInvisibleFramesWhenHeld = showInvisibleFramesWhenHeld;
     }
 
-    public int getRenderItemModelDistance() {
-        return this.renderItemModelDistance;
-    }
-
-    public void setRenderItemModelDistance(int renderItemModelDistance) {
-        this.renderItemModelDistance = renderItemModelDistance;
-    }
     @Override
     public String fileName() {
         return ToggleableItemFrames.MOD_ID;

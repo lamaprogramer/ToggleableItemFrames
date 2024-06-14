@@ -15,9 +15,7 @@ public class ToggleableItemFramesClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         CoreConfig defaultConfig = new CoreConfig();
-        defaultConfig.setRenderItemModelDistance(75);
         defaultConfig.showInvisibleFramesWhenHeld(true);
-
 
         CONFIG = new ConfigRegistry<>(defaultConfig, CoreConfig.class).register();
 

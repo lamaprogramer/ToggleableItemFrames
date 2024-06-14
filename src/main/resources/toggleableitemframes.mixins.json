@@ -7,8 +7,7 @@
     "ItemFrameEntityServerMixin"
   ],
   "client": [
-    "EntityMixin",
-    "ItemFrameEntityClientMixin"
+    "EntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
