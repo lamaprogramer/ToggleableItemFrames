@@ -21,6 +21,12 @@ public class ModMenuCompat implements ModMenuApi {
                         CoreConfig::showInvisibleFramesWhenHeld,
                         CoreConfig::shouldShowInvisibleFramesWhenHeld
                 )
+                .addCyclingButtonWidget(
+                        Text.translatable("toggleableitemframes.option.desc.invonunsuportedservers"),
+                        List.of(true, false),
+                        CoreConfig::setInvisibleIfNotSupportedByServer,
+                        CoreConfig::isInvisibleIfNotSupportedByServer
+                )
                 .build();
     }
 }

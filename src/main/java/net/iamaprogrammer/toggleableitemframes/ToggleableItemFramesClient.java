@@ -16,6 +16,7 @@ public class ToggleableItemFramesClient implements ClientModInitializer {
     public void onInitializeClient() {
         CoreConfig defaultConfig = new CoreConfig();
         defaultConfig.showInvisibleFramesWhenHeld(true);
+        defaultConfig.setInvisibleIfNotSupportedByServer(true);
 
         CONFIG = new ConfigRegistry<>(defaultConfig, CoreConfig.class).register();
 
@@ -24,7 +25,6 @@ public class ToggleableItemFramesClient implements ClientModInitializer {
 
         ClientPlayNetworking.registerGlobalReceiver(VersionIdentifier.version_id, (client, handler, buf, responseSender) -> {
             ALWAYS_INVISIBLE = !buf.readString().equals(VersionIdentifier.MOD_VERSION);
-            System.out.println(ALWAYS_INVISIBLE);
         });
     }
 }
