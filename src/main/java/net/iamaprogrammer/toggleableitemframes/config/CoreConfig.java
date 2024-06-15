@@ -5,13 +5,15 @@ import net.iamaprogrammer.toggleableitemframes.config.core.Config;
 
 public class CoreConfig implements Config {
     private boolean showInvisibleFramesWhenHeld;
+    private boolean invisibleIfNotSupportedByServer;
 
     public CoreConfig() {}
-    public CoreConfig(boolean showInvisibleFramesWhenHeld) {
+    public CoreConfig(boolean showInvisibleFramesWhenHeld, boolean invisibleIfNotSupportedByServer) {
         this.showInvisibleFramesWhenHeld = showInvisibleFramesWhenHeld;
+        this.invisibleIfNotSupportedByServer = invisibleIfNotSupportedByServer;
     }
     public CoreConfig(CoreConfig copy) {
-        this(copy.showInvisibleFramesWhenHeld);
+        this(copy.showInvisibleFramesWhenHeld, copy.invisibleIfNotSupportedByServer);
     }
 
     public boolean shouldShowInvisibleFramesWhenHeld() {
@@ -20,6 +22,14 @@ public class CoreConfig implements Config {
 
     public void showInvisibleFramesWhenHeld(boolean showInvisibleFramesWhenHeld) {
         this.showInvisibleFramesWhenHeld = showInvisibleFramesWhenHeld;
+    }
+
+    public boolean isInvisibleIfNotSupportedByServer() {
+        return this.invisibleIfNotSupportedByServer;
+    }
+
+    public void setInvisibleIfNotSupportedByServer(boolean invisibleIfNotSupportedByServer) {
+        this.invisibleIfNotSupportedByServer = invisibleIfNotSupportedByServer;
     }
 
     @Override
