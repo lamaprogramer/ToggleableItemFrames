@@ -1,5 +1,6 @@
 {
   "toggleableitemframes.option.desc.showinvisibleframeswhenheld": "Show Invisible Frames When Held: ",
+  "toggleableitemframes.option.desc.invonunsuportedservers": "Invisible on Unsupported Servers: ",
   "toggleableitemframes.option.value": "Value",
   "toggleableitemframes.option.save": "Save",
   "toggleableitemframes.option.cancel": "Cancel"

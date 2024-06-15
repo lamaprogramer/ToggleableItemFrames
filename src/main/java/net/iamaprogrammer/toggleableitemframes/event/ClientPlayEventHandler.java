@@ -13,7 +13,7 @@ import net.minecraft.client.network.ClientPlayNetworkHandler;
 public class ClientPlayEventHandler implements ClientPlayConnectionEvents.Join {
     @Override
     public void onPlayReady(ClientPlayNetworkHandler handler, PacketSender sender, MinecraftClient client) {
-        if (client.getServer() != null) {
+        if (client.getServer() != null || !ToggleableItemFramesClient.CONFIG.isInvisibleIfNotSupportedByServer()) {
             ToggleableItemFramesClient.ALWAYS_INVISIBLE = false;
         } else {
             ClientPlayNetworking.send(new ModVersionPacket(VersionIdentifier.MOD_VERSION));

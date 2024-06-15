@@ -18,6 +18,8 @@ public class ToggleableItemFramesClient implements ClientModInitializer {
     public void onInitializeClient() {
         CoreConfig defaultConfig = new CoreConfig();
         defaultConfig.showInvisibleFramesWhenHeld(true);
+        defaultConfig.setInvisibleIfNotSupportedByServer(true);
+
 
         CONFIG = new ConfigRegistry<>(defaultConfig, CoreConfig.class).register();
 
