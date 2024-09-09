@@ -11,5 +11,5 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Uuids;
 
 public class VersionIdentifier {
-    public static final String MOD_VERSION = "5.0.0-1.20.6";
+    public static final String MOD_VERSION = "5.1.0-1.20.6";
 }
