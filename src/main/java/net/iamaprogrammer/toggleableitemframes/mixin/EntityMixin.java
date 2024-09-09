@@ -30,6 +30,7 @@ public class EntityMixin {
             if (player != null) {
                 if (player.isHolding(Items.ITEM_FRAME) || player.isHolding(Items.GLOW_ITEM_FRAME)) {
                     cir.setReturnValue(false);
+                    return;
                 }
             }
 
