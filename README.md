@@ -28,3 +28,20 @@ This will make all item frames in the immediate area visible again.
 - All item frames will be invisible by default on servers without the mod, this can be changed via config. (Client Only)
 
 If you come across any issues, post an issue on the github repo and I'll get to it as soon as I can.
+
+<div align="center">
+  <h1>Like this mod?</h1>
+</div>
+
+<p align="center">Check out some of my other work!</p>
+
+<table align="center">
+  <tbody>
+    <tr>
+      <td><img src="https://cdn.modrinth.com/data/3bCeNMwK/664a545267670420b3d5ada351cc672a18b80083_96.webp"/></td>
+      <td><a href="https://modrinth.com/mod/wax-item-frames">Wax Item Frames</a></td>
+      <td><img src="https://cdn.modrinth.com/data/hkQqBGas/e2633b17ca66431e13250413b542bf836a45f2ae_96.webp"/></td>
+      <td><a href="https://modrinth.com/mod/spacial-swap">Spacial Swap</a></td>
+    </tr>
+  </tbody>
+</table> 
